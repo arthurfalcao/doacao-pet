@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Cuprum:700');
+
+html, body {
+  height: 100vh;
+  width: 100%;
+}
+
+body {
+  font-family: 'Cuprum', sans-serif;
+}
+
+.carousel-item {
+  height: 100vh;
+}
+
+.carousel-caption {
+  bottom: 25rem !important;
+}
+
+.nav-link {
+  color: #fff !important;
+  font-weight: bold !important;
+}

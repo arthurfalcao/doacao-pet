@@ -10,8 +10,8 @@ import { PetsRegisterComponent } from './pets-register/pets-register.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: 'index', component: IndexComponent },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', component: IndexComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'pets', component: PetsComponent },
