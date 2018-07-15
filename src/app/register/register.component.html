@@ -1,3 +1,83 @@
-<p>
-  register works!
-</p>
+<section class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-8 text-center">
+      <h1 class="text-info">Doação Pet</h1>
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class="card">
+        <header class="card-header">
+          Preencha todos os campos para criar a conta.
+        </header>
+        <main class="card-body">
+          <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary">Facebook</button>
+            <button type="submit" class="btn btn-secondary ml-2">Google</button>
+          </div>
+          <form>
+            <div class="form-group input-group">
+              <label for="name" class="sr-only">Name</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-circle-notch"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+              </div>
+            </div>
+            <div class="form-group input-group">
+              <label for="email" class="sr-only">Email</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-at"></i>
+                  </span>
+                </div>
+                <input type="password" class="form-control" id="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group input-group">
+              <label for="fone" class="sr-only">Telefone</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-phone fa-flip-horizontal"></i>
+                  </span>
+                </div>
+                <input type="password" class="form-control" id="fone" placeholder="Telefone">
+              </div>
+            </div>
+            <div class="form-group input-group">
+              <label for="city" class="sr-only">Cidade</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </span>
+                </div>
+                <select name="city" id="city" class="custom-select">
+                  <option selected>Selecione</option>
+                  <option value="maceio">MACEIÓ</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group input-group">
+              <label for="senha" class="sr-only">Senha</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>
+                <input type="password" class="form-control" id="senha" placeholder="Senha">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success">Finalizar</button>
+            <hr>
+            <span>Já é cadastrado <a routerLink="/login">Clique aqui</a></span>
+          </form>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
