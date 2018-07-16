@@ -1,0 +1,8 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/pets">
+    <i class="fas fa-paw pr-2"></i>Doação Pet
+  </a>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="menuPets">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>

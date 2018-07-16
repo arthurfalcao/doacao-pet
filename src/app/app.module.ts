@@ -12,6 +12,9 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MenuComponent } from './shared/menu/menu.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { PetsMenuComponent } from './shared/pets-menu/pets-menu.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { MenuComponent } from './shared/menu/menu.component';
     AboutComponent,
     RegisterComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent,
+    SidebarComponent,
+    PetsMenuComponent
   ],
   imports: [
     BrowserModule,
