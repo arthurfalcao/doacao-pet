@@ -1,3 +1,41 @@
-<p>
-  pets-register works!
-</p>
+<form #petForm="ngForm" (ngSubmit)='onSubmit(petForm)'>
+  <input name="$key" #$key="ngModel" type="hidden" [(ngModel)]='petService.selectedPet.$key'>
+  <div class="form-group">
+    <label>Tipo</label>
+    <input class="form-control" name="tipo" #tipo="ngModel" type="text" [(ngModel)]='petService.selectedPet.tipo' placeholder="tipo do animal"
+      required>
+  </div>
+  <div class="form-group">
+    <label>Raça</label>
+    <input class="form-control" name="raca" #raca="ngModel" type="text" [(ngModel)]='petService.selectedPet.raca' placeholder="raça do animal"
+      required>
+  </div>
+  <div class="form-group">
+    <label>Porte</label>
+    <input class="form-control" name="porte" #porte="ngModel" type="text" [(ngModel)]='petService.selectedPet.porte' placeholder="porte do animal"
+      required>
+  </div>
+  <div class="form-group">
+    <label>Idade</label>
+    <input class="form-control" name="idade" #idade="ngModel" type="text" [(ngModel)]='petService.selectedPet.idade' placeholder="idade animal">
+  </div>
+  <div class="form-group">
+    <label>Cidade</label>
+    <input class="form-control" name="cidade" #cidade="ngModel" type="text" [(ngModel)]='petService.selectedPet.cidade' placeholder="cidade em que o animal se encontra"
+      required>
+  </div>
+  <div class="form-group">
+    <label>Descrição</label>
+    <input class="form-control" name="descricao" #descricao="ngModel" type="text" [(ngModel)]='petService.selectedPet.descricao'
+      placeholder="Descrição so o animal">
+  </div>
+  <div class="form-group">
+    <label>Contato</label>
+    <input class="form-control" name="contato" #contato="ngModel" type="tel" [(ngModel)]='petService.selectedPet.contato' placeholder="numero para contato"
+      required>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!petForm.valid">Submit</button>
+    <button class="btn btn-default" type="button" (click)='resetForm(petForm)'>Reset</button>
+  </div>
+</form>
