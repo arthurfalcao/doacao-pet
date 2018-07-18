@@ -18,12 +18,26 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a routerLink="/login" class="nav-link">Entre</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/register" class="nav-link">Cadastre-se</a>
-        </li>
+          <div *ngIf="loginService.user | async as user; else loading">
+            <li class="nav-item dropdown">
+              <img class="rounded-circle" [src]="user.photoURL" alt="Generic placeholder image" width="80" height="80">
+              <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{user.displayName}}
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+
+                <a class="dropdown-item" (click)="loginService.logout()" href="#">Sair</a>
+              </div>
+            </li>
+          </div>
+        <ng-template #loading>
+          <li>
+            <a routerLink="/login" class="nav-link">Entre</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/register" class="nav-link">Cadastre-se</a>
+          </li>
+          </ng-template>
       </ul>
     </div>
   </div>
