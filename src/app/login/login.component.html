@@ -37,8 +37,8 @@
             <a href="#" class="float-right">Esqueceu a senha?</a>
             <hr>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary">Facebook</button>
-              <button type="submit" class="btn btn-secondary ml-2">Google</button>
+              <button type="submit" class="btn btn-primary" (click)="loginFacebook()">Facebook</button>
+              <button type="submit" class="btn btn-secondary ml-2" (click)="loginGoogle()">Google</button>
             </div>
             <hr>
             <span>Não tem cadastro? <a routerLink="/register">Clique aqui</a></span>
@@ -48,3 +48,9 @@
     </div>
   </div>
 </section>
+
+<div *ngIf="loginService.user | async as user">
+  <h3>Hello {{user.displayName}}</h3>
+  <img [src]="user.photoURL">
+  <button type="button" (click)="logout()">logout</button>
+</div>

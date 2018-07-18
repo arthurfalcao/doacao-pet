@@ -4,6 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { PetsComponent } from './pets/pets.component';
@@ -20,7 +21,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { PetsMenuComponent } from './shared/pets-menu/pets-menu.component';
 
 import { environment } from '../environments/environment';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,10 @@ import { FormsModule } from '@angular/forms';
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

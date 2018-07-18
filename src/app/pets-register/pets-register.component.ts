@@ -35,7 +35,7 @@ export class PetsRegisterComponent implements OnInit {
       idade: '',
       cidade: '',
       descricao: '',
-      contato:0
+      contato: null
     }
   }
 
