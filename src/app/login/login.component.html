@@ -52,5 +52,6 @@
 <div *ngIf="loginService.user | async as user">
   <h3>Hello {{user.displayName}}</h3>
   <img [src]="user.photoURL">
+  <h3>{{user.uid}}</h3>
   <button type="button" (click)="logout()">logout</button>
 </div>
