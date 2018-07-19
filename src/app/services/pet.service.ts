@@ -2,16 +2,22 @@ import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Pet } from './pet.model';
+import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
 
+  userKey: string;
   petList: AngularFireList<any>;
   selectedPet: Pet = new Pet();
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase, private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(item => {
+      this.userKey = item.uid;
+    });
+   }
 
   getData() {
     this.petList = this.firebase.list('pets');
@@ -20,6 +26,7 @@ export class PetService {
 
   insertPet(pet: Pet) {
     this.petList.push({
+      userKey: this.userKey,
       tipo: pet.tipo,
       raca: pet.raca,
       porte: pet.porte,
