@@ -14,8 +14,8 @@
     <img src="./assets/luis-mezquita-72072-unsplash.jpg" alt="Random second slide" class="w-100">
     <div class="carousel-caption text-left">
       <h1>DOAÇÃO DE GATOS</h1>
-      <p class="font-weight-bold">Aqui você pode anúnciar um pet para a doação ou pode <br>
-         adotar um dos bichinhos que outras pessoas querem doar.</p>
+      <p class="font-weight-bold">Aqui você pode anúnciar um pet para a doação ou pode
+        <br> adotar um dos bichinhos que outras pessoas querem doar.</p>
       <a routerLink="/register" class="btn btn-lg btn-success mr-2">FAZER CADASTRO</a>
       <a routerLink="/login" class="btn btn-lg btn-outline-light">ACESSAR</a>
     </div>
@@ -37,34 +37,17 @@
 
     <div class="col-12 col-md-10">
       <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog">
-          <main class="card-body text-center">
-            <h3 class="card-title text-uppercase mb-1">Cachorro</h3>
-            <h6 class="card-text text-info mb-3">Arthur Falcão</h6>
-            <a routerLink="/pets-details" class="btn btn-outline-success text-uppercase">Saiba Mais</a>
-          </main>
-        </div>
-
-        <div class="card">
-          <img class="card-img-top" src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog">
-          <main class="card-body text-center">
-            <h3 class="card-title text-uppercase mb-1">Cachorro</h3>
-            <h6 class="card-text text-info mb-3">Arthur Falcão</h6>
-            <a routerLink="/pets-details" class="btn btn-outline-success text-uppercase">Saiba Mais</a>
-          </main>
-        </div>
-
-        <div class="card">
-          <img class="card-img-top" src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog">
-          <main class="card-body text-center">
-            <h3 class="card-title text-uppercase mb-1">Cachorro</h3>
-            <h6 class="card-text text-info mb-3">Arthur Falcão</h6>
-            <a routerLink="/pets-details" class="btn btn-outline-success text-uppercase">Saiba Mais</a>
-          </main>
+        <div *ngFor="let pet of petList">
+          <div class="card">
+            <img class="card-img-top" src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog">
+            <main class="card-body text-center">
+              <h3 class="card-title text-uppercase mb-1">{{pet.tipo}}</h3>
+              <h6 class="card-text text-info mb-3"> {{pet.raca}}</h6>
+              <a routerLink="/pets-detail" class="btn btn-outline-success text-uppercase">Saiba Mais</a>
+            </main>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </main>
-

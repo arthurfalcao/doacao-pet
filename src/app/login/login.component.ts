@@ -8,11 +8,16 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
 
+  email='';
+  password='';
   constructor( public loginService: LoginService) { }
 
   ngOnInit() {
   }
 
+  login(){
+    this.loginService.loginEmailandPassword(this.email, this.password);
+  }
   loginGoogle(){
     this.loginService.loginGoogle();
   }

@@ -9,9 +9,12 @@
       <h1 class="text-info">Anuncie seu pet</h1>
       <form #petForm="ngForm" (ngSubmit)='onSubmit(petForm)'>
         <input name="$key" #$key="ngModel" type="hidden" [(ngModel)]='petService.selectedPet.$key'>
-        <div *ngIf="loginService.user | async as user">
+        <div *ngIf="loginService.user | async as user; else elseBlock">
           <h3>{{user.uid}}</h3>
         </div>
+        <ng-template #elseBlock>
+          <h3>Faça o login para poder cadastrar o animal</h3>
+        </ng-template>
         <div class="form-group">
           <label for="tipo">Tipo</label>
           <input class="form-control" id="tipo" name="tipo" #tipo="ngModel" type="text" [(ngModel)]='petService.selectedPet.tipo' placeholder="Tipo do animal"

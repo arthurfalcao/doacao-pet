@@ -3,6 +3,7 @@ import { PetService } from '../services/pet.service';
 import { NgForm } from '../../../node_modules/@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Location } from '@angular/common';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-pets-register',
@@ -11,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class PetsRegisterComponent implements OnInit {
 
-  constructor(private petService: PetService, public loginService: LoginService, private location: Location) { }
+  constructor(private petService: PetService, public loginService: LoginService, private router: Router) { }
   
   ngOnInit() {
     this.petService.getData();
@@ -24,7 +25,7 @@ export class PetsRegisterComponent implements OnInit {
     else
       this.petService.updatePet(petForm.value);
     this.resetForm(petForm);
-    this.location.back();
+    this.router.navigate(['/pets']);
     alert('Pet cadastrado');
   }
 

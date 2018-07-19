@@ -16,12 +16,17 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     var x = this.petService.getData();
+    var n = 0;
     x.snapshotChanges().subscribe(item => {
       this.petList = [];
       item.forEach(element => {
-        var y = element.payload.toJSON();
-        y['$key'] = element.key;
-        this.petList.push(y as Pet);
+        if(n < 3){
+
+          var y = element.payload.toJSON();
+          y['$key'] = element.key;
+          this.petList.push(y as Pet);
+        }
+        n++;
       });
     });
   }
