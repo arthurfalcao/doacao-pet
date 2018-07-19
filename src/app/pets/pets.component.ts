@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Pet } from '../services/pet.model';
+import { PetService } from '../services/pet.service';
+import { element } from '../../../node_modules/protractor';
 
 @Component({
   selector: 'app-pets',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetsComponent implements OnInit {
 
-  constructor() { }
+  petList: Pet[];
+
+  constructor(private petService: PetService) { }
 
   ngOnInit() {
+    var x = this.petService.getData();
+    x.snapshotChanges().subscribe(item => {
+      this.petList = [];
+      item.forEach(element => {
+        var y = element.payload.toJSON();
+        y['$key'] = element.key;
+        this.petList.push(y as Pet);
+      });
+    });
   }
 
 }

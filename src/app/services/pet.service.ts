@@ -25,7 +25,7 @@ export class PetService {
       porte: pet.porte,
       idade: pet.idade,
       cidade: pet.cidade,
-      observacao: pet.descricao,
+      descricao: pet.descricao,
       contato: pet.contato
     });
   }

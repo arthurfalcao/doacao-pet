@@ -6,49 +6,50 @@
       <app-sidebar></app-sidebar>
     </div>
     <div class="col-12 col-md-10">
-        <div class="card mt-5">
-          <header class="card-header p-3">
-            <form>
-              <div class="form-row align-items-center">
-                <div class="col-auto my-1">
-                  <label for="name" class="sr-only">Nome</label>
-                  <input type="text" id="name" class="form-control" placeholder="Pesquise">
-                </div>
-                <div class="col-auto my-1">
-                  <label for="porte" class="sr-only">Porte</label>
-                  <select name="porte" id="porte" class="custom-select">
-                    <option selected>Porte</option>
-                    <option value="pequeno">Pequeno</option>
-                    <option value="medio">Médio</option>
-                    <option value="grande">Grande</option>
-                  </select>
-                </div>
-                <div class="col-auto my-1">
-                  <label for="type" class="sr-only">Tipo</label>
-                  <select name="type" id="type" class="custom-select">
-                    <option selected>Tipo</option>
-                    <option value="cachorro">Cachorro</option>
-                    <option value="gato">Gato</option>
-                  </select>
-                </div>
-                <div class="col-auto my-1">
-                  <label for="city" class="sr-only">Cidade</label>
-                  <select name="city" id="city" class="custom-select">
-                    <option selected>Cidade</option>
-                    <option value="maceio">MACEIÓ</option>
-                  </select>
-                </div>
-                <div class="col-auto my-1">
-                  <button type="submit" class="btn btn-info">Pesquisar</button>
-                </div>
+      <div class="card mt-5">
+        <header class="card-header p-3">
+          <form>
+            <div class="form-row align-items-center">
+              <div class="col-auto my-1">
+                <label for="name" class="sr-only">Nome</label>
+                <input type="text" id="name" class="form-control" placeholder="Pesquise">
               </div>
-            </form>
-          </header>
-          <main class="card-body">
+              <div class="col-auto my-1">
+                <label for="porte" class="sr-only">Porte</label>
+                <select name="porte" id="porte" class="custom-select">
+                  <option selected>Porte</option>
+                  <option value="pequeno">Pequeno</option>
+                  <option value="medio">Médio</option>
+                  <option value="grande">Grande</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label for="type" class="sr-only">Tipo</label>
+                <select name="type" id="type" class="custom-select">
+                  <option selected>Tipo</option>
+                  <option value="cachorro">Cachorro</option>
+                  <option value="gato">Gato</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <label for="city" class="sr-only">Cidade</label>
+                <select name="city" id="city" class="custom-select">
+                  <option selected>Cidade</option>
+                  <option value="maceio">MACEIÓ</option>
+                </select>
+              </div>
+              <div class="col-auto my-1">
+                <button type="submit" class="btn btn-info">Pesquisar</button>
+              </div>
+            </div>
+          </form>
+        </header>
+        <main class="card-body">
+          <div *ngFor='let pet of petList'>
             <div class="card mb-3">
               <header class="card-header">
                 <a routerLink="/pets-detail" class="text-dark">
-                  <h3 class="text-uppercase mb-0">CACHORRO</h3>
+                  <h3 class="text-uppercase mb-0">{{pet.tipo | uppercase}}</h3>
                 </a>
               </header>
               <main class="card-body row">
@@ -59,98 +60,29 @@
                 </div>
                 <div class="col-12 col-md-8">
                   <h5 class="card-text p-2 p-md-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum lacus nec rutrum vestibulum. Nunc finibus orci sed dolor fermentum, porta posuere sapien tristique. Vivamus vestibulum nisl id consequat luctus.
+                    {{pet.descricao}}
                   </h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <i class="fas fa-paw mr-2"></i>Raça: Labrador
+                      <i class="fas fa-paw mr-2"></i>Raça: {{pet.raca}}
                     </li>
                     <li class="list-group-item">
-                      <i class="fas fa-arrows-alt-v mr-2"></i>Porte: Médio
+                      <i class="fas fa-arrows-alt-v mr-2"></i>Porte: {{pet.porte}}
                     </li>
                     <li class="list-group-item">
-                      <i class="fas fa-birthday-cake mr-2"></i>Idade: 3 anos
+                      <i class="fas fa-birthday-cake mr-2"></i>Idade: {{pet.idade}}
                     </li>
                     <li class="list-group-item">
-                      <i class="fas fa-map-marker-alt mr-2"></i>Cidade: MACEIÓ
+                      <i class="fas fa-map-marker-alt mr-2"></i>Cidade: {{pet.cidade}}
                     </li>
                   </ul>
                   <a routerLink="/pets-detail" class="btn btn-outline-dark my-3">DETALHES</a>
                 </div>
               </main>
             </div>
-
-            <div class="card mb-3">
-              <header class="card-header">
-                <a routerLink="/pets-detail" class="text-dark">
-                  <h3 class="text-uppercase mb-0">CACHORRO</h3>
-                </a>
-              </header>
-              <main class="card-body row">
-                <div class="col-12 col-md-4">
-                  <a routerLink="/pets-detail">
-                    <img src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog" class="img-thumbnail">
-                  </a>
-                </div>
-                <div class="col-12 col-md-8">
-                  <h5 class="card-text p-2 p-md-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum lacus nec rutrum vestibulum. Nunc finibus orci sed dolor fermentum, porta posuere sapien tristique. Vivamus vestibulum nisl id consequat luctus.
-                  </h5>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <i class="fas fa-paw mr-2"></i>Raça: Labrador
-                    </li>
-                    <li class="list-group-item">
-                      <i class="fas fa-arrows-alt-v mr-2"></i>Porte: Médio
-                    </li>
-                    <li class="list-group-item">
-                      <i class="fas fa-birthday-cake mr-2"></i>Idade: 3 anos
-                    </li>
-                    <li class="list-group-item">
-                      <i class="fas fa-map-marker-alt mr-2"></i>Cidade: MACEIÓ
-                    </li>
-                  </ul>
-                  <a routerLink="/pets-detail" class="btn btn-outline-dark my-3">DETALHES</a>
-                </div>
-              </main>
-            </div>
-
-            <div class="card mb-3">
-              <header class="card-header">
-                <a routerLink="/pets-detail" class="text-dark">
-                  <h3 class="text-uppercase mb-0">CACHORRO</h3>
-                </a>
-              </header>
-              <main class="card-body row">
-                <div class="col-12 col-md-4">
-                  <a routerLink="/pets-detail">
-                    <img src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog" class="img-thumbnail">
-                  </a>
-                </div>
-                <div class="col-12 col-md-8">
-                  <h5 class="card-text p-2 p-md-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum lacus nec rutrum vestibulum. Nunc finibus orci sed dolor fermentum, porta posuere sapien tristique. Vivamus vestibulum nisl id consequat luctus.
-                  </h5>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <i class="fas fa-paw mr-2"></i>Raça: Labrador
-                    </li>
-                    <li class="list-group-item">
-                      <i class="fas fa-arrows-alt-v mr-2"></i>Porte: Médio
-                    </li>
-                    <li class="list-group-item">
-                      <i class="fas fa-birthday-cake mr-2"></i>Idade: 3 anos
-                    </li>
-                    <li class="list-group-item">
-                      <i class="fas fa-map-marker-alt mr-2"></i>Cidade: MACEIÓ
-                    </li>
-                  </ul>
-                  <a routerLink="/pets-detail" class="btn btn-outline-dark my-3">DETALHES</a>
-                </div>
-              </main>
-            </div>
-          </main>
-        </div>
+          </div>
+        </main>
+      </div>
     </div>
   </div>
 </section>
