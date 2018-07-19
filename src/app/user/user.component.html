@@ -1,0 +1,37 @@
+<app-pets-menu></app-pets-menu>
+
+<section class="container-fluid pl-md-0">
+  <div class="row">
+    <div class="col-12 col-md-2">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-12 col-md-9 my-4">
+      <h1 class="text-info">Minhas informações</h1>
+      <form action="">
+        <div *ngIf="loginService.user | async as user">
+          <h3>{{user.displayName}}</h3>
+        </div>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input class="form-control" type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" type="text" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input class="form-control" type="text" id="telefone" name="telefone">
+        </div>
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <select class="custom-select" name="cidade" id="cidade">
+            <option>Selecione</option>
+            <option value="maceio">MACEIÓ</option>
+          </select>
+        </div>
+        <button class="btn btn-success" type="submit">Salvar</button>
+      </form>
+    </div>
+  </div>
+</section>

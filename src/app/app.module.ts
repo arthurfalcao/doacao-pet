@@ -23,6 +23,8 @@ import { PetsMenuComponent } from './shared/pets-menu/pets-menu.component';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
+import { UserComponent } from './user/user.component';
+import { PetsMyComponent } from './pets-my/pets-my.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { LoginService } from './services/login.service';
     MenuComponent,
     FooterComponent,
     SidebarComponent,
-    PetsMenuComponent
+    PetsMenuComponent,
+    UserComponent,
+    PetsMyComponent
   ],
   imports: [
     BrowserModule,

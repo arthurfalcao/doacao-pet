@@ -11,6 +11,10 @@ body {
   font-family: 'Cuprum', sans-serif;
 }
 
+section {
+  min-height: 87.1vh;
+}
+
 .carousel-item {
   height: 100vh;
 }
