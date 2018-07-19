@@ -23,8 +23,8 @@
             <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="user_options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{user.displayName}}
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user_options">
-              <img class="rounded-circle" [src]="user.photoURL" alt="Generic placeholder image" width="80" height="80">
+            <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="user_options">
+              <img class="rounded-circle" [src]="user.photoURL" alt="{{user.displayName}}">
               <div class="dropdown-divider"></div>
               <a routerLink="/user" class="dropdown-item">Dados</a>
               <a routerLink="/pets-my" class="dropdown-item">Meus Anúncios</a>
