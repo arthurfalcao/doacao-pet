@@ -7,31 +7,52 @@
     </div>
     <div class="col-12 col-md-9 my-4">
       <h1 class="text-info">Minhas informações</h1>
-      <form action="">
-        <div *ngIf="loginService.user | async as user">
-          <h3>{{user.displayName}}</h3>
+
+      <div *ngIf="loginService.user | async as user;  else elseBlock">
+
+        <div *ngFor='let users of userList'>
+          <div *ngIf='users.email == user.email; else validadorBlock'>
+            <ul>
+              <li>{{users.name}}</li>
+              <li>{{users.email}}</li>
+              <li>{{users.phoneNumber}}</li>
+              <li>{{users.cidade}}</li>
+            </ul>
+            <button class="btn btn-default" (click)='onEdit(users)'>Edit</button>
+            <button class="btn btn-alert" (click)="onDelete(users.$key)">Delete</button>
+          </div>  
         </div>
-        <div class="form-group">
-          <label for="nome">Nome</label>
-          <input class="form-control" type="text" id="nome" name="nome" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input class="form-control" type="text" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="telefone">Telefone</label>
-          <input class="form-control" type="text" id="telefone" name="telefone">
-        </div>
-        <div class="form-group">
-          <label for="cidade">Cidade</label>
-          <select class="custom-select" name="cidade" id="cidade">
-            <option>Selecione</option>
-            <option value="maceio">MACEIÓ</option>
-          </select>
-        </div>
-        <button class="btn btn-success" type="submit">Salvar</button>
-      </form>
+
+        <h3>{{user.displayName}}</h3>
+        <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm)'>
+          <input name="$key" #$key="ngModel" type="hidden" [(ngModel)]='userDateService.selectedUser.$key'>
+          <div class="form-group">
+            <label>Nome</label>
+            <input class="form-control" type="text" #name="ngModel" [(ngModel)]='userDateService.selectedUser.name' name="name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="email" #email='ngModel' [(ngModel)]='userDateService.selectedUser.email' name="email" required>
+          </div>
+          <div class="form-group">
+            <label>Telefone</label>
+            <input class="form-control" type="number" #phoneNumber='ngModel' [(ngModel)]='userDateService.selectedUser.phoneNumber' name="phoneNumber">
+          </div>
+          <div class="form-group">
+            <label>Cidade</label>
+            <input class="form-control" type="text" #cidade='ngModel' [(ngModel)]='userDateService.selectedUser.cidade' name="cidade">
+          </div>
+          <button class="btn btn-success" type="submit" [disabled]="!userForm.valid">Salvar</button>
+          <button class="btn btn-default" type="button" (click)='resetForm(userForm)'>Reset</button>
+        </form>
+      </div>
+
+      <ng-template #elseBlock>
+        <a routerLink='/login'>
+          <h4>Faça o login</h4>
+        </a>
+      </ng-template>
+
     </div>
   </div>
 </section>

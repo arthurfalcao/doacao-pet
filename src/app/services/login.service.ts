@@ -4,7 +4,6 @@ import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Router } from '../../../node_modules/@angular/router';
 import { Location } from '@angular/common';
-import { User } from './user.model';
 import { AngularFireList } from '../../../node_modules/angularfire2/database';
 
 @Injectable({
@@ -14,7 +13,7 @@ export class LoginService {
 
   user: Observable<firebase.User>;
   userList: AngularFireList<any>;
-  createUser: User = new User();
+  
   
   constructor(public afAuth: AngularFireAuth, private location: Location, private router: Router) {
     this.user = afAuth.authState;
