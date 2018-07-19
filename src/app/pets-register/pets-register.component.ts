@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from '../services/pet.service';
 import { NgForm } from '../../../node_modules/@angular/forms';
+import { LoginService } from '../services/login.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pets-register',
@@ -9,8 +11,8 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 })
 export class PetsRegisterComponent implements OnInit {
 
-  constructor(private petService: PetService) { }
-
+  constructor(private petService: PetService, public loginService: LoginService, private location: Location) { }
+  
   ngOnInit() {
     this.petService.getData();
     this.resetForm();
@@ -22,6 +24,8 @@ export class PetsRegisterComponent implements OnInit {
     else
       this.petService.updatePet(petForm.value);
     this.resetForm(petForm);
+    this.location.back();
+    alert('Pet cadastrado');
   }
 
   resetForm(petForm?: NgForm) {

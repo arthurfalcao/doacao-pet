@@ -1,5 +1,8 @@
 <form #petForm="ngForm" (ngSubmit)='onSubmit(petForm)'>
   <input name="$key" #$key="ngModel" type="hidden" [(ngModel)]='petService.selectedPet.$key'>
+  <div *ngIf="loginService.user | async as user">
+    <h3>{{user.uid}}</h3>
+  </div>
   <div class="form-group">
     <label>Tipo</label>
     <input class="form-control" name="tipo" #tipo="ngModel" type="text" [(ngModel)]='petService.selectedPet.tipo' placeholder="tipo do animal"
@@ -31,8 +34,8 @@
   </div>
   <div class="form-group">
     <label>Contato</label>
-    <input class="form-control" name="contato" #contato="ngModel" type="tel" [(ngModel)]='petService.selectedPet.contato' placeholder="numero de telefone com DDD"
-      required>
+    <input class="form-control" name="contato" #contato="ngModel" type="number" [(ngModel)]='petService.selectedPet.contato'
+      placeholder="numero de telefone com DDD" required>
   </div>
   <div class="form-group">
     <button class="btn btn-default" type="submit" [disabled]="!petForm.valid">Submit</button>
