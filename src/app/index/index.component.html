@@ -6,8 +6,13 @@
     <div class="carousel-caption">
       <h1>BEM VINDO AO DOAÇÃO PET</h1>
       <p class="font-weight-bold">Aqui você pode anúnciar um pet para a doação, ou pode adotar um dos bichinhos que outras pessoas querem doar.</p>
-      <a routerLink="/register" class="btn btn-lg btn-success mr-2">FAZER CADASTRO</a>
-      <a routerLink="/login" class="btn btn-lg btn-outline-light">ACESSAR</a>
+      <div *ngIf="loginService.user | async as user; else notLoged">
+        <a routerLink="/pets-register" class="btn btn-lg btn-success mr-2">ANUNCIAR</a>
+      </div>
+      <ng-template #notLoged>
+        <a routerLink="/register" class="btn btn-lg btn-success mr-2">FAZER CADASTRO</a>
+        <a routerLink="/login" class="btn btn-lg btn-outline-light">ACESSAR</a>
+      </ng-template>
     </div>
   </ng-template>
   <ng-template ngbSlide>
@@ -16,8 +21,13 @@
       <h1>DOAÇÃO DE GATOS</h1>
       <p class="font-weight-bold">Aqui você pode anúnciar um pet para a doação ou pode <br>
          adotar um dos bichinhos que outras pessoas querem doar.</p>
+      <div *ngIf="loginService.user | async as user; else notLoged">
+        <a routerLink="/pets-register" class="btn btn-lg btn-success mr-2">ANUNCIAR</a>
+      </div>
+      <ng-template #notLoged>
       <a routerLink="/register" class="btn btn-lg btn-success mr-2">FAZER CADASTRO</a>
       <a routerLink="/login" class="btn btn-lg btn-outline-light">ACESSAR</a>
+      </ng-template>
     </div>
   </ng-template>
   <ng-template ngbSlide>
