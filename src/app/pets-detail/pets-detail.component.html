@@ -1,3 +1,60 @@
-<p>
-  pets-detail works!
-</p>
+<app-pets-menu></app-pets-menu>
+
+<section class="container-fluid pl-md-0">
+  <div class="row">
+    <div class="col-12 col-md-2">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-12 col-md-10 my-4">
+      <h1 class="text-info">Detalhes</h1>
+      <div class="card">
+        <header class="card-header p-3">
+          Nome
+        </header>
+        <main class="card-body row">
+          <div class="col-12 col-md-4">
+            <a routerLink="/pets-detail">
+              <img src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog" class="img-thumbnail">
+            </a>
+          </div>
+          <div class="col-12 col-md-8">
+            <h5 class="card-text p-2 p-md-0">
+              LOrem
+            </h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <i class="fas fa-paw mr-2"></i>Raça:
+              </li>
+              <li class="list-group-item">
+                <i class="fas fa-arrows-alt-v mr-2"></i>Porte:
+              </li>
+              <li class="list-group-item">
+                <i class="fas fa-birthday-cake mr-2"></i>Idade:
+              </li>
+              <li class="list-group-item">
+                <i class="fas fa-map-marker-alt mr-2"></i>Cidade:
+              </li>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 offset-md-2">
+      <div class="card">
+        <header class="card-header">Dados do dono</header>
+        <main class="card-body">
+          <h6 class="card-title">
+            <i class="fas fa-user mr-2"></i>Nome: Arthur
+          </h6>
+          <h6 class="card-title">
+            <i class="fas fa-at mr-2"></i>Email: Arthur
+          </h6>
+          <h6 class="card-title">
+            <i class="fas fa-phone fa-flip-horizontal mr-2"></i>Telefone: Arthur
+          </h6>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
