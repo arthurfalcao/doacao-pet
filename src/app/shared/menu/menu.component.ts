@@ -8,7 +8,7 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  public isCollapsed = false;
+  public isCollapsed = true;
 
   constructor(public loginService: LoginService) { }
 

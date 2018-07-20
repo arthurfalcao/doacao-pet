@@ -16,7 +16,7 @@ section {
 }
 
 .carousel-item {
-  height: 100vh;
+  max-height: 100vh;
 }
 
 .carousel-caption {
