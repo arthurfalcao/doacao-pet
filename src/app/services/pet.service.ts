@@ -9,24 +9,21 @@ import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 })
 export class PetService {
 
-  userKey: string;
+ 
   petList: AngularFireList<any>;
   selectedPet: Pet = new Pet();
 
-  constructor(private firebase: AngularFireDatabase, private afAuth: AngularFireAuth) {
-    this.afAuth.authState.subscribe(item => {
-      this.userKey = item.uid;
-    });
-   }
+  constructor(private firebase: AngularFireDatabase, private afAuth: AngularFireAuth) {}
+   
 
   getData() {
     this.petList = this.firebase.list('pets');
     return this.petList;
   }
 
-  insertPet(pet: Pet) {
+  insertPet(pet: Pet, userKey: string) {
     this.petList.push({
-      userKey: this.userKey,
+      userKey: userKey,
       tipo: pet.tipo,
       raca: pet.raca,
       porte: pet.porte,

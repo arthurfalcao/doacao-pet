@@ -4,6 +4,7 @@ import { NgForm } from '../../../node_modules/@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Location } from '@angular/common';
 import { Router } from '../../../node_modules/@angular/router';
+import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @Component({
   selector: 'app-pets-register',
@@ -12,7 +13,12 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class PetsRegisterComponent implements OnInit {
 
-  constructor(private petService: PetService, public loginService: LoginService, private router: Router) { }
+  userKey: string;
+  constructor(private petService: PetService, public loginService: LoginService, private router: Router, private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(item => {
+      this.userKey = item.uid;
+    });
+   }
   
   ngOnInit() {
     this.petService.getData();
@@ -21,7 +27,7 @@ export class PetsRegisterComponent implements OnInit {
 
   onSubmit(petForm: NgForm) {
     if (petForm.value.$key == null)
-      this.petService.insertPet(petForm.value);
+      this.petService.insertPet(petForm.value,this.userKey);
     else
       this.petService.updatePet(petForm.value);
     this.resetForm(petForm);

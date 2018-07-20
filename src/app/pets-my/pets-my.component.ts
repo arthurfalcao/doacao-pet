@@ -10,7 +10,6 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./pets-my.component.css']
 })
 export class PetsMyComponent implements OnInit {
-
   petList: Pet[];
   constructor(private petService: PetService, private loginService: LoginService) { }
 
@@ -22,7 +21,10 @@ export class PetsMyComponent implements OnInit {
         var y = element.payload.toJSON();
         y['$key'] = element.key;
         this.petList.push(y as Pet);
-      })
+      });
+    });
   }
 
 }
+
+
