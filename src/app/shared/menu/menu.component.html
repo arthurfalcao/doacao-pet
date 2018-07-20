@@ -24,7 +24,7 @@
               {{user.displayName}}
             </a>
             <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="user_options">
-              <img class="rounded-circle" [src]="user.photoURL" alt="{{user.displayName}}">
+              <img class="rounded-circle" [src]="user.photoURL" alt="{{user.displayName}}" id="photo-dropdown">
               <div class="dropdown-divider"></div>
               <a routerLink="/user" class="dropdown-item">Dados</a>
               <a routerLink="/pets-my" class="dropdown-item">Meus Anúncios</a>
