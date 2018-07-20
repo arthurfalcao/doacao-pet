@@ -1,3 +1,13 @@
+@import "../../assets/css/bootstrap-social.css";
+
 section {
   height: 94.7vh;
+}
+
+.fa-facebook-f {
+  padding: .1rem;
+}
+
+.fa-google {
+  padding-top: .1rem;
 }

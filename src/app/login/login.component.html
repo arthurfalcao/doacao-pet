@@ -37,8 +37,12 @@
             <a href="#" class="float-right">Esqueceu a senha?</a>
             <hr>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary" (click)="loginFacebook()">Facebook</button>
-              <button type="submit" class="btn btn-secondary ml-2" (click)="loginGoogle()">Google</button>
+              <a class="btn btn-social btn-facebook text-white" (click)="loginFacebook()">
+                <span class="fab fa-facebook-f"></span> Entre com o Facebook
+              </a>
+              <a class="btn btn-social btn-google text-white ml-2" (click)="loginGoogle()">
+                <span class="fab fa-google"></span> Entre com o Google
+              </a>
             </div>
             <hr>
             <span>Não tem cadastro? <a routerLink="/register">Clique aqui</a></span>
