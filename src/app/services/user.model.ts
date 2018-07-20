@@ -4,4 +4,5 @@ export class UserDate {
     email: string;
     phoneNumber: number;
     cidade: string;
+    userKey: string;
 }

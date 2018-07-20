@@ -42,13 +42,13 @@ export class UserComponent implements OnInit {
       this.userDateService.updateUserDate(userForm.value);
     this.resetForm(userForm);
     this.validadorForm = false;
-    
+
   }
 
   onEdit(user: UserDate) {
     this.userDateService.selectedUser = Object.assign({}, user);
     this.validadorForm = true;
-   
+
   }
 
   resetForm(userForm?: NgForm) {
@@ -60,6 +60,7 @@ export class UserComponent implements OnInit {
       email: '',
       phoneNumber: null,
       cidade: '',
+      userKey: '',
     }
   }
 
