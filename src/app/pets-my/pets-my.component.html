@@ -13,10 +13,49 @@
         </header>
         <main class="card-body">
 
+          <div *ngIf="loginService.user | async as user">
+            <div *ngFor='let pet of petList'>
+              <div *ngIf='pet.userKey == user.uid'>
+
+                <div class="card mb-3">
+                  <header class="card-header">
+                    <a routerLink="/pets-detail" class="text-dark">
+                      <h3 class="text-uppercase mb-0">{{pet.tipo | uppercase}}</h3>
+                    </a>
+                  </header>
+                  <main class="card-body row">
+                    <div class="col-12 col-md-4">
+                      <a routerLink="/pets-detail">
+                        <img src="./assets/jairo-alzate-45522-unsplash.jpg" alt="Dog" class="img-thumbnail">
+                      </a>
+                    </div>
+                    <div class="col-12 col-md-8">
+                      <h5 class="card-text p-2 p-md-0">
+                        {{pet.descricao}}
+                      </h5>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <i class="fas fa-paw mr-2"></i>Raça: {{pet.raca}}
+                        </li>
+                        <li class="list-group-item">
+                          <i class="fas fa-arrows-alt-v mr-2"></i>Porte: {{pet.porte}}
+                        </li>
+                        <li class="list-group-item">
+                          <i class="fas fa-birthday-cake mr-2"></i>Idade: {{pet.idade}}
+                        </li>
+                        <li class="list-group-item">
+                          <i class="fas fa-map-marker-alt mr-2"></i>Cidade: {{pet.cidade}}
+                        </li>
+                      </ul>
+                      <a routerLink="/pets-detail" class="btn btn-outline-dark my-3">DETALHES</a>
+                    </div>
+                  </main>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </main>
-        <ng-template #nothing>
-            <h5 class="text-muted">Você ainda não possui nenhum anúncio!</h5>
-        </ng-template>
       </div>
     </div>
   </div>
