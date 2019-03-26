@@ -3,7 +3,6 @@ import { Pet } from '../services/pet.model';
 import { PetService } from '../services/pet.service';
 import { LoginService } from '../services/login.service';
 
-
 @Component({
   selector: 'app-pets-my',
   templateUrl: './pets-my.component.html',
@@ -11,20 +10,21 @@ import { LoginService } from '../services/login.service';
 })
 export class PetsMyComponent implements OnInit {
   petList: Pet[];
-  constructor(private petService: PetService, private loginService: LoginService) { }
+  constructor(
+    private petService: PetService,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit() {
-    var x = this.petService.getData();
-    x.snapshotChanges().subscribe(item => {
-      this.petList = [];
-      item.forEach(element => {
-        var y = element.payload.toJSON();
-        y['$key'] = element.key;
-        this.petList.push(y as Pet);
+    const data = this.petService.getData();
+    data.snapshotChanges().subscribe(pets => {
+      this.petList = pets.map(el => {
+        const pet = el.payload.toJSON();
+        return {
+          ...pet,
+          $key: el.key
+        } as Pet;
       });
     });
   }
-
 }
-
-

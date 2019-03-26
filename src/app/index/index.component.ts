@@ -8,7 +8,6 @@ import { PetService } from '../services/pet.service';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-
 export class IndexComponent implements OnInit {
   petList: Pet[];
 
@@ -19,7 +18,6 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     const data = this.petService.getData();
-
     data.snapshotChanges().subscribe(item => {
       const pets = item.slice(0, 3);
       this.petList = pets.map(el => {

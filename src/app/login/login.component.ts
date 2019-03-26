@@ -7,27 +7,25 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  email = '';
+  password = '';
+  constructor(public loginService: LoginService) {}
 
-  email='';
-  password='';
-  constructor( public loginService: LoginService) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  login(){
+  login() {
     this.loginService.loginEmailandPassword(this.email, this.password);
   }
-  loginGoogle(){
+  
+  loginGoogle() {
     this.loginService.loginGoogle();
   }
 
-  loginFacebook(){
+  loginFacebook() {
     this.loginService.loginFacebook();
   }
 
-  logout(){
+  logout() {
     this.loginService.logout();
   }
-
 }

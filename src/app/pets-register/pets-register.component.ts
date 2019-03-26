@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PetService } from '../services/pet.service';
 import { NgForm } from '../../../node_modules/@angular/forms';
 import { LoginService } from '../services/login.service';
-import { Location } from '@angular/common';
 import { Router } from '../../../node_modules/@angular/router';
 import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 

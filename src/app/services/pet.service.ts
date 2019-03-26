@@ -8,17 +8,16 @@ import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
   providedIn: 'root'
 })
 export class PetService {
-
- 
   petList: AngularFireList<any>;
   selectedPet: Pet = new Pet();
 
-  constructor(private firebase: AngularFireDatabase, private afAuth: AngularFireAuth) {}
-   
+  constructor(
+    private firebase: AngularFireDatabase,
+    private afAuth: AngularFireAuth
+  ) {}
 
   getData() {
-    this.petList = this.firebase.list('pets');
-    return this.petList;
+    return (this.petList = this.firebase.list('pets'));
   }
 
   insertPet(pet: Pet, userKey: string) {
@@ -34,8 +33,8 @@ export class PetService {
     });
   }
 
-  updatePet(pet: Pet){
-    this.petList.update(pet.$key,{
+  updatePet(pet: Pet) {
+    this.petList.update(pet.$key, {
       tipo: pet.tipo,
       raca: pet.raca,
       porte: pet.porte,
@@ -43,14 +42,14 @@ export class PetService {
       cidade: pet.cidade,
       observacao: pet.descricao,
       contato: pet.contato
-    })
+    });
   }
 
-  deletePet($key: string){
+  deletePet($key: string) {
     this.petList.remove($key);
   }
 
-  deleteAllPets(){
+  deleteAllPets() {
     this.petList.remove();
   }
 }

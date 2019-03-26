@@ -21,10 +21,10 @@ const routes: Routes = [
   { path: 'pets-register', component: PetsRegisterComponent },
   { path: 'pets-my', component: PetsMyComponent },
   { path: 'about', component: AboutComponent }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

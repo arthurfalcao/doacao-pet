@@ -7,17 +7,14 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  private email = '';
+  private password = '';
 
-  email= "";
-  password= "";
+  constructor(public loginService: LoginService) {}
 
-  constructor(public loginService: LoginService) { }
-
-  register(){
+  register() {
     this.loginService.insertUser(this.email, this.password);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

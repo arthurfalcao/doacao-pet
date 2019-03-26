@@ -8,21 +8,20 @@ import { PetService } from '../services/pet.service';
   styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
-
   petList: Pet[];
 
-  constructor(private petService: PetService) { }
+  constructor(private petService: PetService) {}
 
   ngOnInit() {
-    var x = this.petService.getData();
-    x.snapshotChanges().subscribe(item => {
-      this.petList = [];
-      item.forEach(element => {
-        var y = element.payload.toJSON();
-        y['$key'] = element.key;
-        this.petList.push(y as Pet);
+    const data = this.petService.getData();
+    data.snapshotChanges().subscribe(pets => {
+      this.petList = pets.map(el => {
+        const pet = el.payload.toJSON();
+        return {
+          ...pet,
+          $key: el.key
+        } as Pet;
       });
     });
   }
-
 }
