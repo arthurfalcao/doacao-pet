@@ -8,27 +8,27 @@ import { PetService } from '../services/pet.service';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit {
 
+export class IndexComponent implements OnInit {
   petList: Pet[];
 
-  constructor( public loginService: LoginService, private petService: PetService) { }
+  constructor(
+    public loginService: LoginService,
+    private petService: PetService
+  ) {}
 
   ngOnInit() {
-    var x = this.petService.getData();
-    var n = 0;
-    x.snapshotChanges().subscribe(item => {
-      this.petList = [];
-      item.forEach(element => {
-        if(n < 3){
+    const data = this.petService.getData();
 
-          var y = element.payload.toJSON();
-          y['$key'] = element.key;
-          this.petList.push(y as Pet);
-        }
-        n++;
+    data.snapshotChanges().subscribe(item => {
+      const pets = item.slice(0, 3);
+      this.petList = pets.map(el => {
+        const pet = el.payload.toJSON();
+        return {
+          ...pet,
+          $key: el.key
+        } as Pet;
       });
     });
   }
-
 }

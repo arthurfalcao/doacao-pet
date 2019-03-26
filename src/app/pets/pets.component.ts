@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pet } from '../services/pet.model';
 import { PetService } from '../services/pet.service';
-import { element } from '../../../node_modules/protractor';
 
 @Component({
   selector: 'app-pets',
