@@ -57,4 +57,4 @@ import { PetsMyComponent } from './pets-my/pets-my.component';
   providers: [LoginService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

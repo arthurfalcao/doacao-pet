@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -10,10 +9,7 @@ import { LoginService } from '../../services/login.service';
 export class MenuComponent implements OnInit {
   public isCollapsed = true;
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService) {}
 
-  ngOnInit() {
-  }
-
-
+  ngOnInit() {}
 }

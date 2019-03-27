@@ -11,14 +11,18 @@ import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
   styleUrls: ['./pets-register.component.css']
 })
 export class PetsRegisterComponent implements OnInit {
-
   userKey: string;
-  constructor(private petService: PetService, public loginService: LoginService, private router: Router, private afAuth: AngularFireAuth) {
+  constructor(
+    private petService: PetService,
+    public loginService: LoginService,
+    private router: Router,
+    private afAuth: AngularFireAuth
+  ) {
     this.afAuth.authState.subscribe(item => {
       this.userKey = item.uid;
     });
-   }
-  
+  }
+
   ngOnInit() {
     this.petService.getData();
     this.resetForm();
@@ -26,17 +30,15 @@ export class PetsRegisterComponent implements OnInit {
 
   onSubmit(petForm: NgForm) {
     if (petForm.value.$key == null)
-      this.petService.insertPet(petForm.value,this.userKey);
-    else
-      this.petService.updatePet(petForm.value);
+      this.petService.insertPet(petForm.value, this.userKey);
+    else this.petService.updatePet(petForm.value);
     this.resetForm(petForm);
     this.router.navigate(['/pets']);
     alert('Pet cadastrado');
   }
 
   resetForm(petForm?: NgForm) {
-    if (petForm != null)
-      petForm.reset();
+    if (petForm != null) petForm.reset();
     this.petService.selectedPet = {
       $key: null,
       tipo: '',
@@ -46,7 +48,6 @@ export class PetsRegisterComponent implements OnInit {
       cidade: '',
       descricao: '',
       contato: null
-    }
+    };
   }
-
 }

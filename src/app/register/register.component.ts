@@ -7,8 +7,8 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private email = '';
-  private password = '';
+  private email: string;
+  private password: string;
 
   constructor(public loginService: LoginService) {}
 
