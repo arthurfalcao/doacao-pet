@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { PetService } from '../services/pet.service';
-import { NgForm } from '../../../node_modules/@angular/forms';
 import { LoginService } from '../services/login.service';
-import { Router } from '../../../node_modules/@angular/router';
-import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @Component({
   selector: 'app-pets-register',
@@ -13,7 +13,7 @@ import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 export class PetsRegisterComponent implements OnInit {
   userKey: string;
   constructor(
-    private petService: PetService,
+    public petService: PetService,
     public loginService: LoginService,
     private router: Router,
     private afAuth: AngularFireAuth

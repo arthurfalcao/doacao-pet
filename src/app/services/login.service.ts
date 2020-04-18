@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from '../../../node_modules/rxjs';
-import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
-import * as firebase from 'firebase/app';
-import { Router } from '../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { AngularFireList } from '../../../node_modules/angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireList } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

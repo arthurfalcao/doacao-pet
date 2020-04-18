@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginService } from '../services/login.service';
 import { UserDataService } from '../services/user-data.service';
 import { UserDate } from '../services/user.model';
-import { NgForm } from '../../../node_modules/@angular/forms';
-import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @Component({
   selector: 'app-user',
