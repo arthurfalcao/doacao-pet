@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pet } from '../services/pet.model';
 import { PetService } from '../services/pet.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-pets-my',
@@ -10,7 +11,8 @@ import { PetService } from '../services/pet.service';
 export class PetsMyComponent implements OnInit {
   petList: Pet[];
   constructor(
-    private petService: PetService,
+    public loginService: LoginService,
+    public petService: PetService,
   ) {}
 
   ngOnInit() {
