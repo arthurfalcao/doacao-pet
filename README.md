@@ -1,37 +1,29 @@
-# DoacaoPet
+# Doação Pet
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+Project for the subject of Advanced Programming for Internet - IFAL 2018.1
 
-## Estructure
+## :rocket: Technology
 
-1. pagina inicial
-2. pagina de login e cadastro
-3. lista de pets para doação
-    * cadastro de doação (formulário com dados do pet)
-    * lista de pets
-      * informações dos pets
-    * remoção de doações inseridas ( pet adotado)
+- [Angular](https://angular.io/)
+- [Firebase](https://firebase.google.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-## Development server
+## :notebook: Running the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+# Clone this repository
+$ git clone https://github.com/arthurfalcao/doacao-pet.git
 
-## Code scaffolding
+# Access the project folder
+$ cd doacao-pet
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Install the dependencies
+$ yarn install
 
-## Build
+# Run the application
+$ yarn start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+---
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Made with hours in front of the :computer: for [Arthur Falcão](https://github.com/arthurfalcao), [Franklin Melo](https://github.com/franklinmelo) and [Joab Leite](https://github.com/jlsneto)
