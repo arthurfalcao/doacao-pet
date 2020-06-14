@@ -1,6 +1,8 @@
 # Doação Pet
 
-Project for the subject of Advanced Programming for Internet - IFAL 2018.1
+:dog: Animal adoption platform
+
+> Project for the subject of `Advanced Programming for Internet` - `IFAL 2018.1`
 
 ## :rocket: Technology
 
